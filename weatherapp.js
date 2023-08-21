@@ -1,5 +1,5 @@
 const apiKey = 'fdc60c470455a2ced54c787c389f2a43';
-const apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={6ab1e19345bdde5cda585ae14f32e39d}`;
+const apiUrl = 'https://api.openweathermap.org/data/2.5/onecall?lat=33.44&lon=-94.04&exclude=hourly,daily&appid={fdc60c470455a2ced54c787c389f2a43}';
 
 fetch(apiUrl)
   .then(response => response.json())
