@@ -1,6 +1,9 @@
 const apiKey = 'fdc60c470455a2ced54c787c389f2a43';
-const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?q=Toronto&appid=fdc60c470455a2ced54c787c389f2a43';
+let locationset = "Toronto"
+const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationset}&appid=fdc60c470455a2ced54c787c389f2a43`;
 
+
+const locationElement = document.querySelector('.setLocation');
 const tempValueElement = document.querySelector('.tempValue');
 const humidValueElement = document.querySelector('.humidValue');
 const descriptionValueElement = document.querySelector('.descriptionValue');
@@ -19,7 +22,8 @@ fetch(apiUrl)
     temperature = temperature - 273.15;
     temperature = Math.round(temperature);
 
-    //tempValueElement = temperature - 273.15;
+    locationElement.textContent = locationset;
+
     tempValueElement.textContent = `${temperature}°C`;
 
     humidValueElement.textContent = `${humidity}%`
