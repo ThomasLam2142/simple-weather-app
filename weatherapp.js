@@ -1,5 +1,5 @@
 const apiKey = 'fdc60c470455a2ced54c787c389f2a43';
-let locationset = "Toronto"
+let locationset = "Tokyo"
 const apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${locationset}&appid=fdc60c470455a2ced54c787c389f2a43`;
 
 
@@ -8,7 +8,17 @@ const tempValueElement = document.querySelector('.tempValue');
 const humidValueElement = document.querySelector('.humidValue');
 const descriptionValueElement = document.querySelector('.descriptionValue');
 
-fetch(apiUrl)
+
+document.addEventListener('DOMContentLoaded', function () {
+  // Call your function here to execute it on page load
+  fetchData(apiUrl);
+});
+
+
+function fetchData(apiUrl){
+  console.log("fetching now")
+
+  fetch(apiUrl)
   .then(response => response.json())
   .then(data => {
     let temperature = data.main.temp;
@@ -35,3 +45,26 @@ fetch(apiUrl)
   .catch(error => {
     console.error('Error:', error);
   });
+}
+
+
+function getLocation() {
+    // Get the input field's value
+    const inputText = document.getElementById("inputText").value;
+
+    // Call your locationClick function with the input text
+    locationClick(inputText);
+}
+  
+
+
+
+  // Your locationClick function
+function locationClick(inputText) {
+  // Do something with the input text, for example, display an alert
+  console.log(inputText);
+  locationset = inputText;
+  fetchData(apiUrl);
+}
+
+
